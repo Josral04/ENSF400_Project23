@@ -72,20 +72,24 @@ The main objective in this project is to create software that incorporates/exten
 (Continuous Integration/Continuous Deployment) pipeline. 
 
 ## Git Workflow  
-- **Branching Strategy**: 
-We will use a Feature Branching Strategy, where each new feature or bug fix is developed in its own branch. 
-- The main branch will be called ‘main'
-- Development branches will follow the naming convention ‘feature/[feature-name]’ for features
-- Finally ‘bugfix/[bug-name]’ for bug fixes.  
-  
-- **Pull Requests**: 
-  Upon completion of a feature, developers will create a pull request (PR) from their `feature` branch
-  to the `main' branch. Each PR will contain a description of the changes made and link to any relevant issues.
-  The PR will be reviewed by at least one team member before merging.
-     
-- **Code Reviews**:
-  The code review will take place within the Github interface. Each PR will be reviewed by atleast one team member before being merged to the main branch. The reviewer will
-  make sure the PR is in accordance with the project requirements and necessary discussions will take place within the request.
+Our team follows a structured Git workflow to manage our project efficiently on GitHub.
+
+We begin by cloning the repository using git clone <repository_url>. Before making changes, we create a new feature branch with git checkout -b feature/feature-name to keep our work organized.
+
+Once changes are made, we stage and commit them using git add . and git commit -m "Description of changes", ensuring clear commit messages.
+
+To keep our branch up-to-date, we sync it with the main branch by switching to main, pulling the latest changes (git pull origin main), and merging them into our feature branch (git merge main). If merge conflicts arise, we resolve them before proceeding.
+
+After finalizing our changes, we push our branch to the remote repository using git push origin feature/feature-name. We then open a Pull Request (PR) on GitHub, providing a description of our modifications.
+
+Team members participate in a code review process, leaving feedback and suggesting necessary improvements. Once approved, the PR is merged into main, typically by a team lead or someone with write access.
+
+After merging, we delete the feature branch both locally (git branch -d feature/feature-name) and remotely (git push origin --delete feature/feature-name). To stay updated, we sync our local repository with the latest changes using git pull origin main.
+
+We follow GitFlow best practices, using descriptive branch names (e.g., feature/login-page, bugfix/error-handling) and ensuring every change is reviewed via a PR before merging into main.
+External contributors fork the repository, create a new branch, make their changes, and open a PR to contribute to the project.
+
+This workflow ensures a structured and collaborative development process, keeping our codebase clean and organized.
 
 ## Containerization  
 - **Dockerfile**:
@@ -97,19 +101,4 @@ Container images will be pushed to **Docker Hub**. To push an image, use the fol
   ```bash
   docker push <your-dockerhub-NatnaelTekli>/task-manager-app:<tag>   
 
-## CI/CD Setup  
-- **Jenkins Configuration**: Explain the integration with GitHub and how the pipeline is set up.  
 
-## Running the Project  
-Instructions for running the application locally, including prerequisites.  
-
-
-
-
-Instructions for running the application locally, including prerequisites.  
-
-## Testing  
-- **Testing Framework**: Briefly describe tools used for testing.  
-  We have access to automated testing tools integrated into the CI/CD pipeline (Jenkins), these will help with unit, integration, security, and performance
- 
-- **Code Quality Reports**: Link to generated SonarQube reports. 
