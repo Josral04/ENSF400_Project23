@@ -103,3 +103,8 @@ Container images will be pushed to **Docker Hub**. To push an image, use the fol
 ## Running the Project  
 Instructions for running the application locally, including prerequisites.  
 
+## Testing  
+- **Testing Framework**: Briefly describe tools used for testing.  
+  We have access to automated testing tools integrated into the CI/CD pipeline (Jenkins), these will help with unit, integration, security, and performance
+ 
+- **Code Quality Reports**: Link to generated SonarQube reports. 
