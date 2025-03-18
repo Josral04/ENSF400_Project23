@@ -21,51 +21,24 @@ By the end of this project, your group must deliver the following:
 1.	Document the CI/CD process and provide clear instructions on replicating your environment. Submit a video demo at the end of the project.
 
 ### Existing Pipelines
+
 You will also demonstrate the delivery of the following process and artifacts that come with the project.
 
 1.	Run static analysis quality-gating using SonarQube
 1.	Performance testing with Jmeter
 1.	Security analysis with OWASP's "DependencyCheck"
 1.	Build Javadocs
-
-
-## Evaluation Criteria
-
-Your project will be assessed on the following criteria:
-
-### GitHub Repository & Git Workflow (15%)
-1.	Project on GitHub in a public repository with all team members participating in the development and maintenance of the project (5%).
-1.	Demonstrate the process practicing Git workflows (branching, pull requests, code reviews) (10%).
-
-### Containerization (20%)
-1.	Dockerfile to containerize the project (5%).
-1.	Use of container image repository to upload and download images (5%).
-1.	Effective tagging mechanism for each building matching the commits/branches/pull requests (10%).
-
-### CI/CD Pipeline Automation (40%)
-1.	Jenkins integration with GitHub in Codespace (10%).
-1.	Triggering automated checks upon pull request to the main branch (10%).
-1.	Deployment process to automatically deploy the application in the Codespace environment upon a build (10%).
-1.	Be able to run items 5-8 in **Existing Pipelines** (10%).
-
-### Testing & Code Quality (10%)
-1.	Generate test coverage reports upon each automated build (5%).
-1.	Generate code quality report using SonarQube reports upon each automated build (5%).
-
-### Documentation & Demo (15%)
-1.	Clarity and completeness of README and other documentation. The documentation must demonstrate the team’s collaboration process (5%).
-1.	Demonstration video with a length not exceeding 10 minutes, showing a clear understanding of the pipeline and its benefits. The documentation must demonstrate the team’s collaboration process (10%).
-
-_______________________________________________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________
 
 # Organization of our ENSF 400 CI/CD Project  
+___________________________________________________________________________________________________________________________________________________
 
 ## Team Members  
+
 - Josral Frederick UCID: 30195360
 - Muhammad Aun Raza My UCID: 30172183
 - Natnael Tekli UCID: 30171167
 - Jaden Chow UCID: 30173676
-
 
 ## Project Description  
 The main objective in this project is to create software that incorporates/extends a complete CI/CD 
@@ -92,13 +65,11 @@ External contributors fork the repository, create a new branch, make their chang
 This workflow ensures a structured and collaborative development process, keeping our codebase clean and organized.
 
 ## Containerization  
-- **Dockerfile**:
-  A Dockerfile is a set of instructions to automate the creation of a Docker Image. The Dockerfile helps containerize the application, ensuring it is built, tested and deployed.
-  This is done by packaging the application into a container, works with Kubernetes and enables automation in the CI/CD pipeline.
 
-- **Image Repository**: Instructions for pushing/pulling images and how tagging works.  
-Container images will be pushed to **Docker Hub**. To push an image, use the following command:  
-  ```bash
-  docker push <your-dockerhub-NatnaelTekli>/task-manager-app:<tag>   
+To containerize our application, we use Docker and Docker Hub. After creating and reviewing the Dockerfile as a team, we build the Docker image with a unique tag matching the commit hash or branch name. This ensures traceability by linking each image to the exact code version it was built from. We generate the commit hash using COMMIT_HASH=$(git rev-parse --short HEAD), build the image with docker build -t natnaelt2/ensf400-demo:$COMMIT_HASH ., and push it to Docker Hub using docker push natnaelt2/ensf400-demo:$COMMIT_HASH. This process guarantees consistency and simplifies tracking across deployments.
+
+To deploy the application, we pull the Docker image from Docker Hub using the command docker pull natnaelt2/ensf400-demo:commit-hash. Finally, we run the Docker container using the command docker run -p 8080:8080 natnaelt2/ensf400-demo:commit-hash. Then visit the application with your browser at http://localhost:8080/demo.
+
+
 
 
