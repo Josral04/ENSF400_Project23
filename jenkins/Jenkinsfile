@@ -14,7 +14,13 @@ pipeline {
    }
 
   stages {
-
+    
+    stage('Container Build') {
+      steps {
+        sh 'docker build -t ensf400-demo .'
+      }
+    }  
+        
     // build the war file (the binary).  This is the only
     // place that happens.
     stage('Build') {
