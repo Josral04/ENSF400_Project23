@@ -1,5 +1,6 @@
 FROM jenkins/jenkins:alpine
 USER root
+
 RUN apk add --update docker openrc
 
 RUN apk add --no-cache \
