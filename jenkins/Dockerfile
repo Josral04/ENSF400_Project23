@@ -17,5 +17,4 @@ RUN mkdir -p ${GRADLE_HOME} && \
     rm /tmp/gradle.zip
 
 ENV PATH="${GRADLE_HOME}/gradle-${GRADLE_VERSION}/bin:${PATH}"
-
 RUN gradle -v
