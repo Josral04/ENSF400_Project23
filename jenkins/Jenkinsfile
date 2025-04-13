@@ -55,7 +55,13 @@ pipeline {
         PATH = "${JAVA_HOME}/bin:${PATH}"
       }
       steps {
-        sh './gradlew sonarqube -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login="admin" -Dsonar.password="ensf400"'
+        withCredentials([string(credentialsId: 'GitHub-pa', variable: 'SONAR_TOKEN')]) {
+          sh '''
+            ./gradlew sonarqube \
+              -Dsonar.host.url=http://sonarqube:9000 \
+              -Dsonar.login=$SONAR_TOKEN
+          '''
+        }
       }
     }
 
