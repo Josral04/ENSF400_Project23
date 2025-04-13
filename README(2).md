@@ -69,7 +69,7 @@ To containerize our application, we use Docker and Docker Hub. After creating an
 
 To deploy the application, we pull the Docker image from Docker Hub using the command docker pull natnaelt2/ensf400-demo:commit-hash. Finally, we run the Docker container using the command docker run -p 8080:8080 natnaelt2/ensf400-demo:commit-hash. Then visit the application with your browser at http://localhost:8080/demo.
 
-## Jenkins
+##
 Creating branch to trigger jenkins 
 
 
