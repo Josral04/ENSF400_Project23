@@ -58,7 +58,7 @@ pipeline {
         withCredentials([string(credentialsId: 'sonarl', variable: 'SONAR_TOKEN')]) {
           sh '''
             ./gradlew sonarqube \
-              -Dsonar.host.url=http://sonarqube:9000 \
+              -Dsonar.host.url=https://opulent-succotash-x5v565xrx4wrc645p-9000.app.github.dev \
               -Dsonar.login=$SONAR_TOKEN \
               -Dsonar.projectKey=ensf_project
           '''
