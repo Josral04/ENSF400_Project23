@@ -9,12 +9,6 @@ pipeline {
 
   stages {
 
-    stage('Container Build') {
-      steps {
-        sh 'docker build -t ensf400-demo .'
-      }
-    }
-
     stage('Build') {
       environment {
         JAVA_HOME = '/usr/lib/jvm/java-11-openjdk'
@@ -145,6 +139,5 @@ pipeline {
       }
     }
 
-  } 
-
-} 
+  }
+}
