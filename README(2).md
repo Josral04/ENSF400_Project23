@@ -71,7 +71,7 @@ To deploy the application, we pull the Docker image from Docker Hub using the co
 
 ## Jenkins
 Creating branch to trigger jenkins 
-one more 
+
 
 
 
