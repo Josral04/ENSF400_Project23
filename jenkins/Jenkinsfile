@@ -55,11 +55,12 @@ pipeline {
         PATH = "${JAVA_HOME}/bin:${PATH}"
       }
       steps {
-        withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+        withCredentials([string(credentialsId: 'sonar_token', variable: 'SONAR_TOKEN')]) {
           sh '''
             ./gradlew sonarqube \
               -Dsonar.host.url=http://sonarqube:9000 \
-              -Dsonar.login=$SONAR_TOKEN
+              -Dsonar.login=$SONAR_TOKEN \
+              -Dsonar.projectKey=ensf_project
           '''
         }
       }
