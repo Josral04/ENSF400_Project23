@@ -69,9 +69,25 @@ To containerize our application, we use Docker and Docker Hub. After creating an
 
 To deploy the application, we pull the Docker image from Docker Hub using the command docker pull natnaelt2/ensf400-demo:commit-hash. Finally, we run the Docker container using the command docker run -p 8080:8080 natnaelt2/ensf400-demo:commit-hash. Then visit the application with your browser at http://localhost:8080/demo.
 
-## Jenkins
+## Jenkins CI/CD Integration in Codespaces
 
-we are testing the jenkins
+To set up an automated CI/CD pipeline with Jenkins in our GitHub Codespace environment, we began by deploying Jenkins using Docker. We ensured it was accessible on a specific port (8081 in our case) and verified that the Jenkins UI was up and running.
+
+We then installed the required GitHub plugin on Jenkins, which allowed us to securely integrate it with our GitHub repository. Through this plugin, webhooks were automatically registered, enabling Jenkins to receive real-time notifications whenever pull requests were made to the main branch. We confirmed successful webhook registration by checking the webhook history in our GitHub repository settings, where we could see the events triggering Jenkins builds.
+
+## Pipeline Setup and Trigger
+
+Our Jenkinsfile defined a pipeline that triggered automatically upon any pull request to the main branch. This pipeline included three critical stages:
+
+Stage 1: Container Build – Jenkins initiated a build of the Docker container based on the updated code from the pull request.
+
+Stage 2: Unit Testing – Jenkins ran the unit test suite included in our project to ensure the new code did not break existing functionality. A successful test was required for the pipeline to proceed.
+
+Stage 3: SonarQube Analysis – The final stage involved static code analysis using SonarQube. Jenkins connected to our SonarQube server and generated a detailed report showing code quality and any detected issues.
+
+Each pull request page on GitHub displayed the CI result with either a green checkmark (for successful builds) or a red cross (if any stage failed), along with a direct link to the Jenkins job output for detailed logs.
+
+This setup ensured that every change to the main branch was automatically tested, built, and analyzed, supporting continuous integration and deployment best practices.
 
 
 
