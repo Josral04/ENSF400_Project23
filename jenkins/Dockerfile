@@ -8,7 +8,9 @@ RUN apk add --no-cache \
     bash \
     docker \
     curl \
-    unzip
+    unzip \
+    py3-pip && \
+    pip3 install pipenv
 ENV GRADLE_VERSION=7.6
 ENV GRADLE_HOME=/opt/gradle
 
