@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     HTTP_PROXY = 'http://127.0.0.1:9888'
-    JAVA_HOME = '/usr/lib/jvm/java-17-openjdk'
+    JAVA_HOME = '/usr/lib/jvm/java-11-openjdk'
     PATH = "${JAVA_HOME}/bin:${PATH}"
   }
 
