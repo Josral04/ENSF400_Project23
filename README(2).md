@@ -18,7 +18,7 @@ By the end of this project, your group must deliver the following:
 
 1.	Set up an automated CI/CD with Jenkins in a Codespace environment. Configure the pipeline to trigger upon pull requests merging changes into the main branch.
 
-1.	Document the CI/CD process and provide clear instructions on replicating your environment. Submit a video demo at the end of the project.
+1.	Document the CI/CD process and provide clear instructions on replicating your environment. Submit a video demo at the end of the project. Thanks"
 
 ### Existing Pipelines
 
