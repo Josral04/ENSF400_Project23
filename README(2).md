@@ -71,7 +71,7 @@ To deploy the application, we pull the Docker image from Docker Hub using the co
 
 ## Jenkins
 
-we are testing the jenkins trigger
+we are testing the jenkins
 
 
 
